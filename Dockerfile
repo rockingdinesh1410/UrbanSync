@@ -47,8 +47,7 @@ USER spring:spring
 # Expose backend service port
 EXPOSE 8080
 
-# Expose uploads volume so uploaded complaint photos can persist across container restarts
-VOLUME ["/app/uploads"]
+# Note: persistent uploads are provided by a Railway Volume mounted at /app/uploads (configured in Railway, not in the Dockerfile)
 
 # JVM container-aware memory and performance tuning
 ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0 -Djava.security.egd=file:/dev/./urandom"
